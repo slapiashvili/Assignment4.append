@@ -56,8 +56,8 @@ print(returnFibonacci(count: 20))
 
 //EXERCISE #3
 
-func squareArray(_ numbers:[Int]) -> [Int] {
-    return numbers.map {$0 * $0}
+func squareArray(_ numbers: [Int]) -> [Int] {
+    numbers.map { $0 * $0 }
 }
 
 let initialNum = [1, 2, 3, 4, 5, 6, 7]
@@ -78,16 +78,16 @@ func isItPalindrome(_ input: String) -> Bool {
     }
     var left = 0
     var right = characters.count - 1
-        
+    
     while left < right {
         if characters[left] != characters[right] {
             return false
-               }
-            left += 1
-            right -= 1
         }
+        left += 1
+        right -= 1
+    }
     
-        return true
+    return true
 }
 
 var result1 = isItPalindrome("Ai ra mzis sizmaria")
@@ -106,9 +106,9 @@ func wordCounter(_ input: String) -> [String: Int] {
             wordCounts[word, default: 0] += 1
         }
     }
-            
-  return wordCounts
-            
+    
+    return wordCounts
+    
 }
 
 let inputstring = "I am having a great day today. I hope you are having a great day too!"
@@ -144,8 +144,8 @@ print (binaryString)
 
 //EXERCISE #7
 
-let oddKiller: ([Int]) -> [Int] = {
-    numbers in return numbers.filter { $0 % 2 == 0 }
+let oddKiller: ([Int]) -> [Int] = { numbers in
+    return numbers.filter { $0 % 2 == 0 }
 }
 
 let amountOfPeople = [1, 982, 23, 2, 4, 5, 22, 5, 19, 28, 9982, 235, 67, 87, 84, 1891]
@@ -157,8 +157,8 @@ print(eliminated)
 
 //EXERCISE #8
 
-let promotionBonus: ([Int]) -> [Int] = {
-    numbers in return numbers.map { $0 * 10}
+let promotionBonus: ([Int]) -> [Int] = { numbers in
+    return numbers.map { $0 * 10 }
 }
 
 let customerPoints = [23, 21, 6, 8, 42, 98, 4, 1, 9, 54, 877]
@@ -175,19 +175,23 @@ func printSum(_ numbers: [Int], completion: @escaping(Int) -> Void) {
     }
 }
 
-let numbers = [5,2,4,1,4,5,7,123,34]
+let numbers = [5, 2, 4, 1, 4, 5, 7, 123, 34]
 printSum(numbers) { sum in
     print("Sum after 3 seconds: \(sum)")
 }
 
 //this function prints the sum from the array after 3 seconds of completion.
 
-//9
-func filterEvens(_ numbers: [Int]) -> [Int] {
-    return numbers.filter { $0 % 2 == 0}
+//EXERCISE 10
+
+func keepOddsOnly(from strings: [String]) -> [Int] {
+    let intNumbers = strings.compactMap { Int($0) }
+    let oddNumbers = numbers.filter { $0 % 2 != 0 }
+    return oddNumbers
 }
 
-let groupsIDs = [2345, 3423, 634252, 145345, 143534, 86732, 25467, 2457, 463111, 75723]
-print(filterEvens(groupsIDs))
+let groupIDs = ["2345", "3423", "145345", "143534", "86732", "25467", "2457", "463111", "75723"]
+let oddNumbersArray = keepOddsOnly(from: groupIDs)
+print (oddNumbersArray)
 
-//in this function we used the high rang function .filter to filter out the odds.
+//in this function we take a string of numbers and we convert it into only odds.
